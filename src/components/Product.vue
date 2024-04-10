@@ -18,7 +18,7 @@ const props = defineProps({
         <span class="font-bold">{{ product?.sellerId }}</span>
         {{ product?.title }}
       </p>
-      <p class="text-[#fe0059] mt-auto px-2">{{ product?.price }} TL</p>
+      <p class="text-[#fe0059] px-2">{{ product?.price }} TL</p>
     </div>
   </router-link>
 </template>
