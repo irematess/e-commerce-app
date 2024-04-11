@@ -13,3 +13,7 @@ export const fetchProductsDetail = (productId) => {
     .get(`http://localhost:3000/products/${productId}/?_embed=seller`)
     .then((response) => response.data)
 }
+
+export const fetchSeller = (sellerId) => {
+  return axios.get(`http://localhost:3000/sellers/${sellerId}`).then((response) => response.data)
+}
