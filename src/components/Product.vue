@@ -1,5 +1,5 @@
-<!-- eslint-disable no-unused-vars -->
 <script setup>
+// eslint-disable-next-line no-unused-vars
 const props = defineProps({
   product: { type: Object }
 })
@@ -15,7 +15,7 @@ const props = defineProps({
       </div>
 
       <p class="px-2 pt-2 font-normal">
-        <span class="font-bold">{{ product?.sellerId }}</span>
+        <span class="font-bold">{{ product.seller?.title }}</span>
         {{ product?.title }}
       </p>
       <p class="text-[#fe0059] px-2">{{ product?.price }} TL</p>

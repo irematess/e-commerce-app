@@ -1,0 +1,61 @@
+<script setup>
+// eslint-disable-next-line no-unused-vars
+const props = defineProps({
+  product: { type: Object }
+})
+</script>
+<template>
+  <div class="font-normal pt-24">
+    <div class="border-b-[1px] border-slate-200 pb-6">
+      <h2 class="text-xl">
+        <span class="font-bold">{{ product.seller?.title }}</span>
+        {{ product.title }}
+      </h2>
+      <p class="font-bold items-center flex gap-1">
+        {{ product.raiting }}
+        <i class="fa-solid fa-star text-slate-500 text-xs"></i>
+        <i class="fa-solid fa-star text-slate-500 text-xs"></i>
+        <i class="fa-solid fa-star text-slate-500 text-xs"></i>
+        <i class="fa-solid fa-star text-slate-500 text-xs"></i>
+        <i class="fa-solid fa-star text-slate-500 text-xs"></i>
+      </p>
+      <p class="text-xl font-bold text-[#FE0000] mb-2">{{ product.price }} TL</p>
+      <span class="bg-[#fa909060] p-1 rounded-md text-xs">Peşin Fiyatına 3 Taksit</span>
+    </div>
+    <div>
+      <button class="bg-[#FE0000] mt-4 px-48 py-2 text-white mr-4 rounded-lg">Sepete Ekle</button>
+      <button class="hover:text-[#FE0000]"><i class="fa-regular fa-heart"></i></button>
+    </div>
+    <div class="bg-slate-100 mt-4 px-1 py-1 mb-7 rounded-lg text-zinc-800">
+      <i class="fa-solid fa-box mr-4 px-2"></i> Tahmini Kargoya Teslim: 3 gün içinde
+    </div>
+    <div class="flex flex-col mb-8">
+      <span>Ürününüz için uygun fiyatlara ek hizmet seçebilirsiniz.</span>
+      <div class="border-[1px] border-slate-300 p-2 rounded-xl flex flex-col gap-2">
+        <span class="font-bold">
+          <input type="checkbox" name="" id="" />
+          trendyol<span class="text-[#FE0000]">sigorta</span>
+        </span>
+        <span class="font-medium pl-4"
+          >Kapsamlı Onarım Paketi <i class="fa-solid fa-circle-info mx-2 text-slate-400"></i>
+          <span class="text-[#FE0000]">185 TL</span></span
+        >
+        <span class="pl-4"
+          ><span class="mr-2">·Ekran Tamiri</span><span> ·Kaza,Sıvı Teması Onarımı</span></span
+        >
+      </div>
+    </div>
+    <h5 class="font-bold mb-2">Öne Çıkan Özellikler:</h5>
+    <div class="grid grid-cols-4 gap-2">
+      <div
+        v-for="(attribute, index) in product.attributes"
+        :key="index"
+        class="bg-red-100 border-2 rounded-md flex flex-col justify-center items-center py-1"
+      >
+        <span>{{ attribute.title }}</span>
+        <span class="font-bold">{{ attribute.value }}</span>
+      </div>
+    </div>
+    <p class="mt-8 text-md">{{ product.description }}</p>
+  </div>
+</template>

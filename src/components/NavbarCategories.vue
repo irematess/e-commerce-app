@@ -6,8 +6,6 @@ const categories = ref()
 onMounted(() => {
   fetchCategories().then((data) => (categories.value = data))
 })
-
-console.log(categories)
 </script>
 <template>
   <nav class="flex justify-between w-full text-black text-[14px]">
