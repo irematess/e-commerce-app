@@ -5,7 +5,7 @@ const props = defineProps({
 })
 </script>
 <template>
-  <router-link :to="`/${product?.id}`">
+  <router-link :to="`/product/${product?.id}`">
     <div class="card border-[1px] rounded-md h-full flex flex-col pb-2">
       <figure class="h-3/5">
         <img :src="product?.thumbnail" alt="" class="h-full w-full" />
