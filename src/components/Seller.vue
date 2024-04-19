@@ -42,7 +42,7 @@ const props = defineProps({
       <button
         class="absolute z-50 inset-x-12 text-zinc-800 bg-red-100 rounded-xl w-2/3 mt-1 py-2 px-2"
       >
-        <router-link :to="`/${seller.id}`">MAĞAZAYA GİT ></router-link>
+        <router-link :to="`/seller/${seller.id}`">MAĞAZAYA GİT ></router-link>
       </button>
     </div>
     <div class="bg-red-100 mt-10 p-2 text-xs flex justify-between items-center rounded-md">

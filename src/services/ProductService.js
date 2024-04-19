@@ -25,3 +25,9 @@ export const fetchCategoryProduct = (categoryId) => {
     .get(`http://localhost:3000/products?categoryId=${categoryId}&_embed=seller&_embed=category`)
     .then((response) => response.data)
 }
+
+export const fetchSellerProduct = (sellerId) => {
+  return axios
+    .get(`http://localhost:3000/products?sellerId=${sellerId}&_embed=seller&_embed=category`)
+    .then((response) => response.data)
+}

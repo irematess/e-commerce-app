@@ -16,7 +16,7 @@ onMounted(() => {
 watch(() => route.params.categoryId, fetchPage)
 </script>
 <template>
-  <div class="container mx-auto w-3/4 pt-6">
+  <div class="container mx-auto w-3/4 pt-6" v-if="category">
     <h1>
       "{{ category[1].category.title }}" kategorisi için {{ category.length }} sonuç listeleniyor
     </h1>

@@ -16,6 +16,13 @@ onMounted(() => {
 })
 </script>
 <template>
+  <div v-if="product" class="container mx-auto w-3/4 mt-8 text-zinc-500 text-xs font-normal">
+    <router-link to="/" class="mr-2">Anasayfa</router-link>
+    <i class="fa-solid fa-chevron-right text-red-500 mr-2"></i>
+    <router-link :to="`/category/${product.categoryId}`" class="text-zinc-800 ml-1">{{
+      product.category.title
+    }}</router-link>
+  </div>
   <div
     v-if="product"
     class="grid grid-cols-3 gap-3 container justify-center items-center mx-20 w-screen"
