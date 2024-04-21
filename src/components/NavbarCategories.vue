@@ -9,12 +9,12 @@ onMounted(() => {
 })
 </script>
 <template>
-  <nav class="flex justify-between w-full text-black text-[14px]">
+  <nav class="flex justify-between w-full text-black text-[14px] font-semibold">
     <router-link
       :to="`/category/${category?.id}`"
       v-for="(category, index) in categories"
       :key="index"
-      class="hover:text-[#fe0059]"
+      class="hover:text-[#F27A1A]"
       >{{ category.title }}
     </router-link>
   </nav>

@@ -4,9 +4,13 @@ import NavbarCategories from '@/components/NavbarCategories.vue'
 
 <template>
   <div class="border-b-[1px] flex flex-col justify-center">
+    <img
+      src="../assets/web-product-detail-top-tr-TR-1711957500000-gz5ise9dk0b3psa50b14g4.webp"
+      alt=""
+    />
     <div class="container mx-auto flex flex-col items-center pt-2 text-[#999999] text-[12px] w-4/5">
       <header class="w-full">
-        <div class="flex justify-end items-center gap-4 text-slate-400 text-xs font-thin">
+        <div class="flex justify-end items-center gap-6 text-xs font-normal">
           <a href="/">İndirim Kuponlarım</a>
           <a href="/">Trendyol'da Satış Yap</a>
           <a href="/">Hakkımızda</a>
@@ -14,30 +18,30 @@ import NavbarCategories from '@/components/NavbarCategories.vue'
         </div>
         <div class="flex items-center justify-between">
           <figure>
-            <a href="/"><img src="../assets/e-commerce.svg" alt="" class="w-52 h-44" /></a>
+            <a href="/"><img src="../assets/ty-web.svg" alt="" class="w-36" /></a>
           </figure>
           <div
-            class="flex items-center justify-between gap-10 w-1/2 bg-[#F3F3F3] px-4 py-1 rounded-md"
+            class="flex items-center justify-between w-1/2 bg-[#F3F3F3] focus:outline rounded-md relative"
           >
             <input
-              class="flex w-full p-2 bg-[#F3F3F3]"
+              class="flex w-full p-2 bg-[#F3F3F3] focus:outline-[#F27A1A] px-4 py-3 rounded-md"
               placeholder="Aradığınız ürün, kategori veya markayı yazın"
               maxlength="50"
             />
-            <i class="fa-solid fa-magnifying-glass text-[#FE0000]"></i>
+            <i class="fa-solid fa-magnifying-glass text-[#F27A1A] absolute right-2"></i>
           </div>
           <div class="flex gap-8 text-black text-[13px] font-medium">
-            <a href="/" class="hover:text-[#fe0059]"><i class="fa-regular fa-user"></i> Hesabım</a>
-            <a href="/" class="hover:text-[#fe0059]"
+            <a href="/" class="hover:text-[#F27A1A]"><i class="fa-regular fa-user"></i> Hesabım</a>
+            <a href="/" class="hover:text-[#F27A1A]"
               ><i class="fa-regular fa-heart"></i> Favorilerim</a
             >
-            <a href="/" class="hover:text-[#fe0059]"
+            <a href="/" class="hover:text-[#F27A1A]"
               ><i class="fa-solid fa-cart-shopping"></i> Sepetim
             </a>
           </div>
         </div>
       </header>
-      <NavbarCategories />
+      <NavbarCategories class="my-2" />
     </div>
   </div>
   <RouterView />
@@ -54,5 +58,7 @@ body {
 
 input::placeholder {
   font-weight: 400;
+  font-size: 0.9rem;
+  color: #535252;
 }
 </style>

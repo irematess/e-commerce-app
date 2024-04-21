@@ -16,19 +16,29 @@ onMounted(() => {
 })
 </script>
 <template>
-  <div v-if="product" class="container mx-auto w-3/4 mt-8 text-zinc-500 text-xs font-normal">
-    <router-link to="/" class="mr-2">Anasayfa</router-link>
-    <i class="fa-solid fa-chevron-right text-red-500 mr-2"></i>
-    <router-link :to="`/category/${product.categoryId}`" class="text-zinc-800 ml-1">{{
-      product.category.title
-    }}</router-link>
-  </div>
-  <div
-    v-if="product"
-    class="grid grid-cols-3 gap-3 container justify-center items-center mx-20 w-screen"
-  >
-    <ProductGallery :images="[product.thumbnail, ...product.images]" />
-    <ProductAttribute :product="product" />
-    <Seller :seller="product.seller" />
+  <div v-if="product" class="container mx-auto mt-8 text[#333333] text-sm font-light w-4/5">
+    <div class="flex items-center">
+      <router-link to="/" class="mr-2 hover:underline">Anasayfa</router-link>
+      <i class="fa-solid fa-chevron-right text-[#F27A1A] mr-2"></i>
+      <router-link
+        :to="`/category/${product.categoryId}`"
+        class="ml-1 font-normal hover:underline"
+        >{{ product.category.title }}</router-link
+      >
+      <i class="fa-solid fa-chevron-right text-[#F27A1A] mr-2"></i>
+      <router-link :to="`/product/${product.id}`" class="ml-1 font-semibold hover:underline">{{
+        product.title
+      }}</router-link>
+    </div>
+
+    <div v-if="product" class="flex flex-row container justify-between items-start w-full mt-4">
+      <ProductGallery
+        :images="[product.thumbnail, ...product.images]"
+        :topSeller="product.topSeller"
+        class="w-2/6"
+      />
+      <ProductAttribute :product="product" class="w-5/12" />
+      <Seller :seller="product.seller" class="w-2/12" />
+    </div>
   </div>
 </template>

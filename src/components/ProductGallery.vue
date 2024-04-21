@@ -2,7 +2,8 @@
 import { ref } from 'vue'
 
 const props = defineProps({
-  images: { type: Array }
+  images: { type: Array },
+  topSeller: { type: Boolean }
 })
 
 const currentIndex = ref(0)
@@ -23,15 +24,21 @@ const backClick = () => {
 </script>
 
 <template>
-  <div class="w-96 flex-col pt-16 relative">
-    <div class="mb-8">
-      <figure class="rounded-xl">
-        <img :src="images[currentIndex]" />
+  <div class="w-96 flex-col pt-4 relative">
+    <div class="mb-8 border-2 rounded-md">
+      <figure class="rounded-xl relative">
+        <img
+          src="../assets/EnCokSatan_202012091129.webp"
+          alt=""
+          v-if="topSeller"
+          class="absolute w-20 m-6"
+        />
+        <img :src="images[currentIndex]" class="rounded-md" />
       </figure>
     </div>
     <div class="images flex flex-cols-4 gap-7 justify-center items-center">
       <img
-        class="w-8 rounded-lg cursor-pointer"
+        class="w-8 rounded-md cursor-pointer border-2"
         v-for="(image, index) in images"
         :key="index"
         :src="image"

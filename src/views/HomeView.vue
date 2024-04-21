@@ -9,13 +9,8 @@ onMounted(() => {
 })
 </script>
 <template>
-  <div class="container mx-auto grid grid-cols-5 w-3/4 gap-10 py-8" v-if="products">
+  <div class="container mx-auto grid grid-cols-5 w-4/5 gap-8 py-8" v-if="products">
     <Product v v-for="(product, index) in products" :key="index" :product="product" />
   </div>
 </template>
-<style scoped>
-.topSeller {
-  background: rgb(254, 0, 89);
-  background: linear-gradient(90deg, rgba(254, 0, 89, 1) 0%, rgba(255, 142, 181, 1) 48%);
-}
-</style>
+<style scoped></style>

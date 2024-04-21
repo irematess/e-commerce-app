@@ -5,13 +5,15 @@ const props = defineProps({
 })
 </script>
 <template>
-  <div class="w-2/4">
-    <div class="bg-cyan-100 flex flex-col text-sm p-2 rounded-md gap-2">
+  <div>
+    <div class="bg-[#5efcf918] flex flex-col text-sm rounded-md gap-2">
       <span
         ><i class="fa-solid fa-file bg-sky-800 p-1 px-2 text-white mr-2 rounded-md"></i>Kurumsal
         Fatura</span
       >
-      <span>Kurumsal Faturaya Uygun. <a href="/" class="text-sky-800">İncele ></a></span>
+      <span class="text-xs"
+        >Kurumsal Faturaya Uygun. <a href="/" class="text-sky-800">İncele ></a></span
+      >
     </div>
     <p class="text-slate-400 font-normal text-sm mt-2">ÜRÜNÜN KAMPANYALARI</p>
     <div
@@ -23,7 +25,7 @@ const props = defineProps({
     </div>
     <div class="border-[1px] border-slate-300 mt-4 rounded-lg px-2 pb-4 relative">
       <div
-        class="bg-cyan-100 text-sm mt-4 py-2 justify-start items-center flex text-center px-2 rounded-md"
+        class="bg-[#5efcf918] text-sm mt-4 py-2 justify-start items-center flex text-center px-2 rounded-md"
       >
         <div class="text-sky-800 text-center">
           <span>{{ seller.title }}</span>
@@ -40,14 +42,14 @@ const props = defineProps({
         <i class="fa-solid fa-message bg-slate-200 p-1 rounded-md"></i> Satıcı Soruları
       </div>
       <button
-        class="absolute z-50 inset-x-12 text-zinc-800 bg-red-100 rounded-xl w-2/3 mt-1 py-2 px-2"
+        class="absolute z-50 inset-x-12 text-zinc-800 bg-[#f3cdb0] rounded-lg w-2/3 mt-1 py-2 px-2"
       >
         <router-link :to="`/seller/${seller.id}`">MAĞAZAYA GİT ></router-link>
       </button>
     </div>
-    <div class="bg-red-100 mt-10 p-2 text-xs flex justify-between items-center rounded-md">
+    <div class="bg-[#f27b1a0d] mt-10 p-2 text-xs flex justify-between items-center rounded-md">
       <span
-        ><i class="fa-solid fa-bookmark bg-[#FE0000] p-2 rounded-md mr-2 text-white"></i>
+        ><i class="fa-solid fa-bookmark bg-[#F27A1A] p-2 rounded-md mr-2 text-white"></i>
         Koleksiyona Ekle</span
       >
       <span>+</span>
