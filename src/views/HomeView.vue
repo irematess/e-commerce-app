@@ -10,7 +10,17 @@ onMounted(() => {
 </script>
 <template>
   <div class="container mx-auto grid grid-cols-5 w-4/5 gap-8 py-8" v-if="products">
-    <Product v v-for="(product, index) in products" :key="index" :product="product" />
+    <Product
+      v
+      v-for="(product, index) in products"
+      :key="index"
+      :thumbnail="product.thumbnail"
+      :seller_title="product.seller?.title"
+      :title="product.title"
+      :price="product.price"
+      :topSeller="product.topSeller"
+      :id="product.id"
+    />
   </div>
 </template>
 <style scoped></style>

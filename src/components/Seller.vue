@@ -1,7 +1,9 @@
 <script setup>
 // eslint-disable-next-line no-unused-vars
 const props = defineProps({
-  seller: { type: Object }
+  title: { type: String, required: false, default: 'Trendyol' },
+  rating: { type: Number, required: false, default: 5 },
+  id: { type: String, required: false, default: '' }
 })
 </script>
 <template>
@@ -28,10 +30,8 @@ const props = defineProps({
         class="bg-[#5efcf918] text-sm mt-4 py-2 justify-start items-center flex text-center px-2 rounded-md"
       >
         <div class="text-sky-800 text-center">
-          <span>{{ seller.title }}</span>
-          <span class="bg-[#38C400] text-white rounded-md p-[1px] mx-4 px-2">{{
-            seller.rating
-          }}</span>
+          <span>{{ title }}</span>
+          <span class="bg-[#38C400] text-white rounded-md p-[1px] mx-4 px-2">{{ rating }}</span>
           <i><i class="fa-solid fa-circle-info"></i></i>
         </div>
       </div>
@@ -44,7 +44,7 @@ const props = defineProps({
       <button
         class="absolute z-50 inset-x-12 text-zinc-800 bg-[#f3cdb0] rounded-lg w-2/3 mt-1 py-2 px-2"
       >
-        <router-link :to="`/seller/${seller.id}`">MAĞAZAYA GİT ></router-link>
+        <router-link :to="`/seller/${id}`">MAĞAZAYA GİT ></router-link>
       </button>
     </div>
     <div class="bg-[#f27b1a0d] mt-10 p-2 text-xs flex justify-between items-center rounded-md">

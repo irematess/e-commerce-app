@@ -37,8 +37,21 @@ onMounted(() => {
         :topSeller="product.topSeller"
         class="w-2/6"
       />
-      <ProductAttribute :product="product" class="w-5/12" />
-      <Seller :seller="product.seller" class="w-2/12" />
+      <ProductAttribute
+        :seller_title="product.seller?.title"
+        :title="product.title"
+        :price="product.price"
+        :rating="product.rating"
+        :description="product.description"
+        :attributes="product.attributes"
+        class="w-5/12"
+      />
+      <Seller
+        :title="product.seller?.title"
+        :rating="product.seller?.rating"
+        :id="product.seller?.id"
+        class="w-2/12"
+      />
     </div>
   </div>
 </template>

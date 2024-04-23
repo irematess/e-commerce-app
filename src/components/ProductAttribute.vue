@@ -1,25 +1,30 @@
 <script setup>
 // eslint-disable-next-line no-unused-vars
 const props = defineProps({
-  product: { type: Object }
+  seller_title: { title: String, required: false, default: 'Trendyol' },
+  title: { type: String },
+  raiting: { type: Number },
+  price: { type: Number },
+  description: { type: String },
+  attributes: { type: Array }
 })
 </script>
 <template>
   <div class="font-normal">
     <div class="border-b-[1px] border-slate-200 pb-6">
       <h2 class="text-xl">
-        <span class="font-semibold">{{ product.seller?.title }}</span>
-        {{ product.title }}
+        <span class="font-semibold">{{ seller_title }}</span>
+        {{ title }}
       </h2>
       <p class="font-bold items-center flex gap-1">
-        {{ product.raiting }}
+        {{ raiting }}
         <i class="fa-solid fa-star text-slate-500 text-xs"></i>
         <i class="fa-solid fa-star text-slate-500 text-xs"></i>
         <i class="fa-solid fa-star text-slate-500 text-xs"></i>
         <i class="fa-solid fa-star text-slate-500 text-xs"></i>
         <i class="fa-solid fa-star text-slate-500 text-xs"></i>
       </p>
-      <p class="text-xl font-bold text-[#F27A1A] mb-2">{{ product.price }} TL</p>
+      <p class="text-xl font-bold text-[#F27A1A] mb-2">{{ price }} TL</p>
       <span class="bg-[#fa838318] p-1 rounded-md text-xs">Peşin Fiyatına 3 Taksit!</span>
     </div>
     <div class="flex text-center">
@@ -50,7 +55,7 @@ const props = defineProps({
     <h5 class="font-bold mb-2">Öne Çıkan Özellikler:</h5>
     <div class="grid grid-cols-4 gap-2">
       <div
-        v-for="(attribute, index) in product.attributes"
+        v-for="(attribute, index) in attributes"
         :key="index"
         class="bg-[#f27b1a1b] rounded-md flex flex-col justify-center items-center text-center p-1"
       >
@@ -58,6 +63,6 @@ const props = defineProps({
         <span class="font-bold">{{ attribute.value }}</span>
       </div>
     </div>
-    <p class="mt-8 text-md">{{ product.description }}</p>
+    <p class="mt-8 text-md">{{ description }}</p>
   </div>
 </template>
