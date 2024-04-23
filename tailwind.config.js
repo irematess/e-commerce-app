@@ -2,7 +2,10 @@
 export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
-    extend: {}
+    extend: {},
+    fontFamily: {
+      source: ['Source Sans 3']
+    }
   },
   plugins: []
 }
