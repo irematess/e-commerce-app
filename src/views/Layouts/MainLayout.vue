@@ -1,5 +1,6 @@
 <script setup>
 import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 </script>
 
 <template>
@@ -12,6 +13,7 @@ import Header from '@/components/Header.vue'
   <Header />
 
   <RouterView />
+  <Footer />
 </template>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
