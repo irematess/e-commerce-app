@@ -26,7 +26,7 @@ const props = defineProps({
         <span class="font-bold">{{ seller_title }}</span>
         {{ title }}
       </p>
-      <p class="text-[#F27A1A] px-2">{{ price }} TL</p>
+      <p class="text-primary px-2">{{ price }} TL</p>
     </div>
   </router-link>
 </template>

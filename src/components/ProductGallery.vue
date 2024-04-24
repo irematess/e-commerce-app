@@ -42,7 +42,7 @@ const backClick = () => {
         v-for="(image, index) in images"
         :key="index"
         :src="image"
-        :class="{ 'border-red-400': index == currentIndex }"
+        :class="{ 'border-primary': index == currentIndex }"
         @click="currentIndex = index"
         @mouseover="currentIndex = index"
       />

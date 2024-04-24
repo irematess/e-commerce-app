@@ -24,12 +24,12 @@ const props = defineProps({
         <i class="fa-solid fa-star text-slate-500 text-xs"></i>
         <i class="fa-solid fa-star text-slate-500 text-xs"></i>
       </p>
-      <p class="text-xl font-bold text-[#F27A1A] mb-2">{{ price }} TL</p>
+      <p class="text-xl font-bold text-primary mb-2">{{ price }} TL</p>
       <span class="bg-[#fa838318] p-1 rounded-md text-xs">Peşin Fiyatına 3 Taksit!</span>
     </div>
     <div class="flex text-center">
-      <button class="bg-[#F27A1A] mt-4 w-10/12 py-4 text-white rounded-lg mr-2">Sepete Ekle</button>
-      <button class="hover:text-[#F27A1A]">
+      <button class="bg-primary mt-4 w-10/12 py-4 text-white rounded-lg mr-2">Sepete Ekle</button>
+      <button class="hover:text-primary">
         <i class="fa-regular fa-heart border-[1px] py-3 px-4 rounded-full text-2xl mt-4"></i>
       </button>
     </div>
@@ -41,11 +41,11 @@ const props = defineProps({
       <div class="border-[1px] border-slate-300 p-2 rounded-xl flex flex-col gap-2">
         <span class="font-bold">
           <input type="checkbox" name="" id="" />
-          trendyol<span class="text-[#F27A1A]">sigorta</span>
+          trendyol<span class="text-primary">sigorta</span>
         </span>
         <span class="font-medium pl-4"
           >Kapsamlı Onarım Paketi <i class="fa-solid fa-circle-info mx-2 text-slate-400"></i>
-          <span class="text-[#F27A1A]">185 TL</span></span
+          <span class="text-primary">185 TL</span></span
         >
         <span class="pl-4"
           ><span class="mr-2">·Ekran Tamiri</span><span> ·Kaza,Sıvı Teması Onarımı</span></span

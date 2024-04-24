@@ -25,16 +25,16 @@ onMounted(() => {
         class="flex items-center justify-center w-1/2 bg-[#F3F3F3] focus:outline rounded-md relative"
       >
         <input
-          class="flex w-full p-2 bg-[#F3F3F3] focus:outline-[#F27A1A] px-4 py-3 rounded-md"
+          class="flex w-full p-2 bg-[#F3F3F3] focus:outline-primary px-4 py-3 rounded-md"
           placeholder="Aradığınız ürün, kategori veya markayı yazın"
           maxlength="50"
         />
-        <i class="fa-solid fa-magnifying-glass text-[#F27A1A] absolute right-2"></i>
+        <i class="fa-solid fa-magnifying-glass text-primary absolute right-2"></i>
       </div>
       <div class="flex gap-8 text-black text-[13px] font-medium">
-        <a href="/" class="hover:text-[#F27A1A]"><i class="fa-regular fa-user"></i> Hesabım</a>
-        <a href="/" class="hover:text-[#F27A1A]"><i class="fa-regular fa-heart"></i> Favorilerim</a>
-        <a href="/" class="hover:text-[#F27A1A]"
+        <a href="/" class="hover:text-primary"><i class="fa-regular fa-user"></i> Hesabım</a>
+        <a href="/" class="hover:text-primary"><i class="fa-regular fa-heart"></i> Favorilerim</a>
+        <a href="/" class="hover:text-primary"
           ><i class="fa-solid fa-cart-shopping"></i> Sepetim
         </a>
       </div>
@@ -44,7 +44,7 @@ onMounted(() => {
         :to="`/category/${category?.id}`"
         v-for="(category, index) in categories"
         :key="index"
-        class="hover:text-[#F27A1A]"
+        class="hover:text-primary"
         >{{ category.title }}
       </router-link>
     </nav>

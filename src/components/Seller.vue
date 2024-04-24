@@ -49,8 +49,8 @@ const props = defineProps({
     </div>
     <div class="bg-[#f27b1a0d] mt-10 p-2 text-xs flex justify-between items-center rounded-md">
       <span
-        ><i class="fa-solid fa-bookmark bg-[#F27A1A] p-2 rounded-md mr-2 text-white"></i>
-        Koleksiyona Ekle</span
+        ><i class="fa-solid fa-bookmark bg-primary p-2 rounded-md mr-2 text-white"></i> Koleksiyona
+        Ekle</span
       >
       <span>+</span>
     </div>

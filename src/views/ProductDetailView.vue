@@ -18,13 +18,13 @@ onMounted(() => {
   <div v-if="product" class="container mx-auto mt-8 text[#333333] text-sm font-light w-4/5">
     <div class="flex items-center">
       <router-link to="/" class="mr-2 hover:underline">Anasayfa</router-link>
-      <i class="fa-solid fa-chevron-right text-[#F27A1A] mr-2"></i>
+      <i class="fa-solid fa-chevron-right text-primary mr-2"></i>
       <router-link
         :to="`/category/${product.categoryId}`"
         class="ml-1 font-normal hover:underline"
         >{{ product.category.title }}</router-link
       >
-      <i class="fa-solid fa-chevron-right text-[#F27A1A] mr-2"></i>
+      <i class="fa-solid fa-chevron-right text-primary mr-2"></i>
       <router-link :to="`/product/${product.id}`" class="ml-1 font-semibold hover:underline">{{
         product.title
       }}</router-link>
