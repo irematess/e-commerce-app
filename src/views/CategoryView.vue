@@ -1,5 +1,5 @@
 <script setup>
-import { fetchCategoryProduct } from '@/services/ProductService'
+import { fetchCategoryProduct } from '@/services/CategoryService'
 import { ref, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import Product from '@/components/Product.vue'

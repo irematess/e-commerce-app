@@ -1,5 +1,5 @@
 <script setup>
-import { fetchCategories } from '@/services/ProductService.js'
+import { fetchCategories } from '@/services/CategoryService'
 import { onMounted, ref } from 'vue'
 
 const categories = ref()

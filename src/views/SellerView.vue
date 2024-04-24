@@ -1,8 +1,8 @@
 <script setup>
 import Product from '@/components/Product.vue'
 import { ref, onMounted } from 'vue'
-import { fetchSellerProduct } from '@/services/ProductService'
-import { fetchSeller } from '@/services/ProductService'
+import { fetchSellerProduct } from '@/services/SellerService'
+import { fetchSeller } from '@/services/SellerService'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
@@ -27,6 +27,16 @@ onMounted(() => {
     </div>
   </div>
   <div class="container mx-auto grid grid-cols-5 w-3/4 gap-10 py-8" v-if="products">
-    <Product v v-for="(product, index) in products" :key="index" :product="product" />
+    <Product
+      v
+      v-for="(product, index) in products"
+      :key="index"
+      :thumbnail="product.thumbnail"
+      :seller_title="product.seller?.title"
+      :title="product.title"
+      :price="product.price"
+      :topSeller="product.topSeller"
+      :id="product.id"
+    />
   </div>
 </template>

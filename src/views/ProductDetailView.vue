@@ -1,7 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { fetchProductsDetail } from '@/services/ProductService'
-
 import { useRoute } from 'vue-router'
 import ProductGallery from '@/components/ProductGallery.vue'
 import ProductAttribute from '@/components/ProductAttribute.vue'
