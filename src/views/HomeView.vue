@@ -16,7 +16,7 @@ onMounted(() => {
 watch(() => gridNumber, fetchPage)
 </script>
 <template>
-  <div class="container mx-auto w-4/5 py-8 font-thin">
+  <div class="container mx-auto w-4/5 py-8 font-thin justify-end text-end gap-2 flex">
     <input
       type="radio"
       id="three"
@@ -24,21 +24,21 @@ watch(() => gridNumber, fetchPage)
       v-model="gridNumber"
       class="checked:bg-red-500 indeterminate:bg-gray-300 in-range:bg-red-500"
     />
-    <label for="three"
-      ><i class="fa-regular fa-square"></i><i class="fa-regular fa-square"></i
-      ><i class="fa-regular fa-square"></i
-    ></label>
+    <label for="three">3'lü |</label>
     <input type="radio" id="four" value="four" v-model="gridNumber" />
-    <label for="four"
-      ><i class="fa-regular fa-square"></i><i class="fa-regular fa-square"></i
-      ><i class="fa-regular fa-square"></i><i class="fa-regular fa-square"></i
-    ></label>
+    <label for="four">4'lü |</label>
+    <input type="radio" id="five" value="five" v-model="gridNumber" />
+    <label for="five">5'li </label>
   </div>
 
   <div
     class="container mx-auto grid w-4/5 gap-8 py-8"
     v-if="products"
-    :class="[{ 'grid-cols-4': gridNumber == 'three' }, { 'grid-cols-5': gridNumber == 'four' }]"
+    :class="[
+      { 'grid-cols-3 gap-16': gridNumber == 'three' },
+      { 'grid-cols-4': gridNumber == 'four' },
+      { 'grid-cols-5': gridNumber == 'five' }
+    ]"
   >
     <Product
       v
