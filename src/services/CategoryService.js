@@ -1,7 +1,10 @@
 import axiosInstance from '@/plugin/axiosClient'
 
 export const fetchCategories = () => {
-  return axiosInstance.get('/categories').then((response) => response.data)
+  return axiosInstance
+    .get('/categories')
+    .then((response) => [null, response.data])
+    .catch((err) => [err])
 }
 
 export const fetchCategoryProduct = (categoryId) => {

@@ -108,4 +108,5 @@ onMounted(() => {
       />
     </div>
   </div>
+  <div v-else>ürün bulunamadı</div>
 </template>

@@ -4,8 +4,13 @@ import { onMounted, ref } from 'vue'
 
 const categories = ref()
 
-onMounted(() => {
-  fetchCategories().then((data) => (categories.value = data))
+onMounted(async () => {
+  const [reqErr, categoriesData] = await fetchCategories()
+  if (reqErr) {
+    console.log('hata')
+  }
+  categories.value = categoriesData
+  console.log(categoriesData)
 })
 </script>
 
@@ -45,7 +50,13 @@ onMounted(() => {
         v-for="(category, index) in categories"
         :key="index"
         class="hover:text-primary"
-        >{{ category.title }}
+      >
+        <span
+          v-if="category.id == 'cok-satanlar'"
+          class="bg-red-500 text-white text-xs rounded-lg p-[1px] px-1 -ml-10"
+          >Yeni</span
+        >
+        {{ category.title }}
       </router-link>
     </nav>
   </header>

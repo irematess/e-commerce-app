@@ -19,7 +19,7 @@ onMounted(() => {
     class="container flex flex-row mx-auto w-3/4 py-4 bg-[#1642ba7b] mt-8 rounded-md justify-start items-center pl-4"
   >
     <figure class="">
-      <img src="https://picsum.photos/200" alt="" class="h-16 rounded-full mr-2" />
+      <img :src="seller.thumbnail" alt="" class="h-16 rounded-full mr-2" />
     </figure>
     <div>
       {{ seller.title }}
