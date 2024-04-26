@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue'
 import { fetchProductsDetail } from '@/services/ProductService'
 import { useRoute } from 'vue-router'
 import ProductGallery from '@/components/ProductGallery.vue'
+import RatingStarts from '@/components/RatingStarts.vue'
 
 import Seller from '@/components/Seller.vue'
 
@@ -47,14 +48,7 @@ onMounted(() => {
               <span class="font-semibold">{{ seller_title }}</span>
               {{ product.title }}
             </h2>
-            <p class="font-bold items-center flex gap-1">
-              {{ product.raiting }}
-              <i class="fa-solid fa-star text-slate-500 text-xs"></i>
-              <i class="fa-solid fa-star text-slate-500 text-xs"></i>
-              <i class="fa-solid fa-star text-slate-500 text-xs"></i>
-              <i class="fa-solid fa-star text-slate-500 text-xs"></i>
-              <i class="fa-solid fa-star text-slate-500 text-xs"></i>
-            </p>
+            <RatingStarts :raiting="product.raiting" />
             <p class="text-xl font-bold text-primary mb-2">{{ product.price }} TL</p>
             <span class="bg-[#fa838318] p-1 rounded-md text-xs">Peşin Fiyatına 3 Taksit!</span>
           </div>
