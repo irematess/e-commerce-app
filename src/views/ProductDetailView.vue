@@ -97,7 +97,7 @@ onMounted(() => {
       </div>
       <Seller
         :title="product.seller?.title"
-        :rating="product.seller?.rating"
+        :rating="product.seller?.raiting"
         :id="product.seller?.id"
         class="w-2/12"
       />

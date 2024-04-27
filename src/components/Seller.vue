@@ -31,7 +31,15 @@ const props = defineProps({
       >
         <div class="text-sky-800 text-center">
           <span>{{ title }}</span>
-          <span class="bg-[#38C400] text-white rounded-md p-[1px] mx-4 px-2">{{ rating }}</span>
+          <span
+            class="bg-[#38C400] text-white rounded-md p-[1px] mx-4 px-2"
+            :class="[
+              { 'bg-red-500': rating > 0 && rating <= 3 },
+              { 'bg-orange-500': rating > 3 && rating <= 7 },
+              { 'bg-[#38C400]': rating > 7 && rating <= 10 }
+            ]"
+            >{{ rating }}</span
+          >
           <i><i class="fa-solid fa-circle-info"></i></i>
         </div>
       </div>

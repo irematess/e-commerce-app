@@ -23,7 +23,15 @@ onMounted(() => {
     </figure>
     <div>
       {{ seller.title }}
-      <span class="bg-[#38C400] text-white rounded-md p-[1px] mx-4 px-2">{{ seller.rating }}</span>
+      <span
+        class="bg-[#38C400] text-white rounded-md p-[1px] mx-4 px-2"
+        :class="[
+          { 'bg-red-500': seller.raiting > 0 && seller.raiting <= 3 },
+          { 'bg-orange-500': seller.raiting > 3 && seller.raiting <= 7 },
+          { 'bg-[#38C400]': seller.raiting > 7 && seller.raiting <= 10 }
+        ]"
+        >{{ seller.raiting }}</span
+      >
     </div>
   </div>
   <div class="container mx-auto grid grid-cols-5 w-3/4 gap-10 py-8" v-if="products">
