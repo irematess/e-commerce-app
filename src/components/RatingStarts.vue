@@ -25,7 +25,7 @@ const props = defineProps({
     ></i>
     <i
       class="fa-solid fa-star text-slate-500 text-xs"
-      :class="{ 'text-yellow-500': raiting > 5 }"
+      :class="{ 'text-yellow-500': raiting == 5 }"
     ></i>
   </p>
 </template>
