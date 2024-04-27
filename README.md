@@ -33,3 +33,10 @@ yarn build
 ```sh
 yarn lint
 ```
+
+### Backend [)
+
+```sh
+npx json-server fakedb/database.json
+```
+
