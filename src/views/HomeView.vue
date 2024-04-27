@@ -30,7 +30,28 @@ watch(() => gridNumber, fetchPage)
     <input type="radio" id="five" value="five" v-model="gridNumber" />
     <label for="five">5'li </label>
   </div>
+  <div class="container mx-auto w-4/5 gap-8 pt-4 pb-4 bg-[#f8dfdf89] px-4 rounded-lg">
+    <div class="flex justify-between">
+      <h4 class="mb-2">Çok Satan Ürünler</h4>
+      <router-link to="/category/cok-satanlar"
+        >Tüm Ürünler <i class="fa-solid fa-chevron-right"></i
+      ></router-link>
+    </div>
 
+    <div class="grid grid-cols-5 gap-8 w-full">
+      <Product
+        v-for="(product, index) in products?.filter((product) => product.topSeller).slice(0, 5)"
+        :key="index"
+        :thumbnail="product.thumbnail"
+        :seller_title="product.seller?.title"
+        :title="product.title"
+        :price="product.price"
+        :topSeller="product.topSeller"
+        :id="product.id"
+        class="bg-white"
+      />
+    </div>
+  </div>
   <div
     class="container mx-auto grid w-4/5 gap-8 py-8"
     v-if="products"
@@ -41,7 +62,6 @@ watch(() => gridNumber, fetchPage)
     ]"
   >
     <Product
-      v
       v-for="(product, index) in products"
       :key="index"
       :thumbnail="product.thumbnail"
