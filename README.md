@@ -22,11 +22,7 @@ yarn dev
 yarn build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
 
-```sh
-yarn lint
-```
 
 ### Backend 
 
