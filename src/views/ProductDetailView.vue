@@ -6,6 +6,7 @@ import ProductGallery from '@/components/ProductGallery.vue'
 import RatingStarts from '@/components/RatingStarts.vue'
 
 import Seller from '@/components/Seller.vue'
+import Comments from '@/components/Comments.vue'
 
 const route = useRoute()
 
@@ -33,7 +34,7 @@ onMounted(() => {
 
     <div
       v-if="product"
-      class="flex flex-row container justify-between items-start w-full mt-4 pb-64"
+      class="flex flex-row container justify-between items-start w-full mt-4 pb-20"
     >
       <ProductGallery
         :images="[product.thumbnail, ...product.images]"
@@ -100,6 +101,33 @@ onMounted(() => {
         :id="product.seller?.id"
         class="w-2/12"
       />
+    </div>
+    <!-- Comments -->
+    <div class="container mx-auto flex flex-col w-full justify-start mb-36">
+      <span class="text-start text-lg mb-2 text-black font-bold">Ürün Değerlendirmeleri</span>
+      <div class="border-[1px] border-slate-200 w-full rounded-lg">
+        <div
+          class="flex items-center justify-between border-b-[1px] border-slate-200 py-8 px-4 text-2xl"
+        >
+          <div class="flex items-center">
+            <RatingStarts :raiting="product.raiting" /><i class="fa-solid fa-chevron-down ml-2"></i>
+          </div>
+          <div>{{ product?.comments.length }} Yorum</div>
+        </div>
+        <div>
+          <div class="bg-slate-200 mx-2 my-3 p-2 rounded-lg flex justify-center items-center">
+            <i class="fa-solid fa-person-dress m-1 p-1 rounded-full bg-primary px-2 text-white"></i
+            >Kullanıcıların çoğu bedeninizi almanızı öneriyor
+          </div>
+        </div>
+        <Comments
+          v-for="(comment, index) in product?.comments"
+          :key="index"
+          :comments="comment"
+          :seller_id="product.seller.id"
+          class=""
+        />
+      </div>
     </div>
   </div>
   <div v-else>ürün bulunamadı</div>

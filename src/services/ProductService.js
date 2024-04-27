@@ -8,6 +8,8 @@ export const fetchProducts = () => {
 
 export const fetchProductsDetail = (productId) => {
   return axios
-    .get(`http://localhost:3000/products/${productId}/?_embed=seller&_embed=category`)
+    .get(
+      `http://localhost:3000/products/${productId}/?_embed=seller&_embed=category&_embed=comments`
+    )
     .then((response) => response.data)
 }
