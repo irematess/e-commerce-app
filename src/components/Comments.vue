@@ -1,5 +1,5 @@
 <script setup>
-import RatingStarts from './RatingStarts.vue'
+import Raiting from './Raiting.vue'
 // eslint-disable-next-line no-unused-vars
 const props = defineProps({
   comments: { type: Array },
@@ -8,8 +8,8 @@ const props = defineProps({
 </script>
 <template>
   <div class="px-2 py-4 my-5 rounded-lg w-full flex flex-col items-start justify-start text-start">
-    <span class="flex gap-2 text-zinc-800 font-medium justify-start items-start text-start">
-      <RatingStarts :raiting="comments?.raiting" />
+    <span class="flex gap-2 text-zinc-800 font-medium justify-start items-center text-start">
+      <Raiting :value="comments?.raiting" />
       {{ comments?.comment }}
     </span>
     <div class="flex w-full justify-between">

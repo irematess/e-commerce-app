@@ -15,7 +15,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <header class="container flex flex-col mx-auto pt-2 text-[#999999] text-[12px] border-b-[1px]">
+  <header
+    class="flex flex-col mx-auto pt-2 text-[#999999] text-[12px] border-b-[1px] border-red-500"
+  >
     <div class="flex justify-end items-center gap-6 text-xs font-normal">
       <a href="/">İndirim Kuponlarım</a>
       <a href="/">Trendyol'da Satış Yap</a>

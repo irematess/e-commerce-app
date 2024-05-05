@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import { fetchProductsDetail } from '@/services/ProductService'
 import { useRoute } from 'vue-router'
 import ProductGallery from '@/components/ProductGallery.vue'
-import RatingStarts from '@/components/RatingStarts.vue'
+import Raiting from '@/components/Raiting.vue'
 
 import Seller from '@/components/Seller.vue'
 import Comments from '@/components/Comments.vue'
@@ -49,7 +49,10 @@ onMounted(() => {
               <span class="font-semibold">{{ seller_title }}</span>
               {{ product.title }}
             </h2>
-            <RatingStarts :raiting="product.raiting" />
+            <span class="flex gap-2 text-lg font-semibold items-center">
+              <Raiting :value="product.raiting" />{{ product.raiting }}
+            </span>
+
             <p class="text-xl font-bold text-primary mb-2">{{ product.price }} TL</p>
             <span class="bg-[#fa838318] p-1 rounded-md text-xs">Peşin Fiyatına 3 Taksit!</span>
           </div>
@@ -110,7 +113,7 @@ onMounted(() => {
           class="flex items-center justify-between border-b-[1px] border-slate-200 py-8 px-4 text-2xl"
         >
           <div class="flex items-center">
-            <RatingStarts :raiting="product.raiting" /><i class="fa-solid fa-chevron-down ml-2"></i>
+            <Raiting :value="product.raiting" /><i class="fa-solid fa-chevron-down ml-2"></i>
           </div>
           <div>{{ product?.comments.length }} Yorum</div>
         </div>
