@@ -13,7 +13,7 @@ onMounted(() => {
   fetchPage()
 })
 
-watch(() => gridNumber, fetchPage)
+// watch(() => gridNumber, fetchPage)
 </script>
 <template>
   <div class="container mx-auto w-4/5 py-8 font-thin justify-end text-end gap-2 flex">
