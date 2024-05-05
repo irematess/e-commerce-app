@@ -1,6 +1,5 @@
 <script setup>
 import Star from './Star.vue'
-// eslint-disable-next-line no-unused-vars
 const props = defineProps({
   value: { type: Number }
 })

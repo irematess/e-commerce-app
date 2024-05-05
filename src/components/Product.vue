@@ -1,5 +1,4 @@
 <script setup>
-// eslint-disable-next-line no-unused-vars
 const props = defineProps({
   thumbnail: { type: String },
   seller_title: { type: String, required: false, default: 'Trendyol' },

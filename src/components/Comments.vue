@@ -1,6 +1,6 @@
 <script setup>
 import Raiting from './Raiting.vue'
-// eslint-disable-next-line no-unused-vars
+
 const props = defineProps({
   comments: { type: Array },
   seller_id: { type: String }

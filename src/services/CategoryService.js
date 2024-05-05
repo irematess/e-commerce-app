@@ -9,6 +9,6 @@ export const fetchCategories = () => {
 
 export const fetchCategoryProduct = (categoryId) => {
   return axiosInstance
-    .get(`/products?categoryId=${categoryId}&_embed=seller&_embed=category`)
+    .get(`/products?categoryId=${categoryId}&_embed=seller&_embed=category`, { params: {} })
     .then((response) => response.data)
 }
