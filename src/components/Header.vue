@@ -16,15 +16,15 @@ onMounted(async () => {
 
 <template>
   <header
-    class="flex flex-col mx-auto pt-2 text-[#999999] text-[12px] border-b-[1px] border-red-500"
+    class="flex flex-col mx-auto pt-2 text-[#999999] text-[12px] border-b-[1px] border-slate-200 justify-center items-center"
   >
-    <div class="flex justify-end items-center gap-6 text-xs font-normal">
+    <div class="container flex justify-end items-center gap-6 text-xs font-normal">
       <a href="/">İndirim Kuponlarım</a>
       <a href="/">Trendyol'da Satış Yap</a>
       <a href="/">Hakkımızda</a>
       <a href="/">Yardım&Destek</a>
     </div>
-    <div class="flex items-center justify-around px-16">
+    <div class="container flex items-center justify-around">
       <figure>
         <a href="/"><img src="../assets/ty-web.svg" alt="" class="w-36" /></a>
       </figure>
@@ -46,7 +46,7 @@ onMounted(async () => {
         </a>
       </div>
     </div>
-    <nav class="flex justify-between w-full text-black text-[14px] font-semibold px-28 py-2">
+    <nav class="container flex justify-around w-full text-black text-[14px] font-semibold py-2">
       <router-link
         :to="`/category/${category?.id}`"
         v-for="(category, index) in categories"

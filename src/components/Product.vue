@@ -12,12 +12,7 @@ const props = defineProps({
   <router-link :to="`/product/${id}`">
     <div class="card border-[1px] rounded-md h-full flex flex-col pb-2">
       <figure class="h-2/3 relative">
-        <img
-          src="../assets/EnCokSatan_202012091129.webp"
-          alt=""
-          class="absolute w-20 m-2"
-          v-if="topSeller"
-        />
+        <img src="../assets/en-cok-satan.webp" alt="" class="absolute w-20 m-2" v-if="topSeller" />
         <img :src="thumbnail" alt="" class="h-full w-full" />
       </figure>
 

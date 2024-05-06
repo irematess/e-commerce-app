@@ -9,8 +9,8 @@
       <span>Trendyol'da Satış Yap</span>
       <span class="text-base">Güvenli Alışveriş</span>
       <span class="flex gap-4">
-        <img src="../assets/Troy-logo.png" class="w-12 h-6" />
-        <img src="../assets/Mastercard-logo.png" class="w-12 h-6" />
+        <img src="../assets/troy-logo.png" class="w-12 h-6" />
+        <img src="../assets/master-card.png" class="w-12 h-6" />
         <img src="../assets/visa.png" class="w-12 h-6" />
         <img src="../assets/american-express.png" class="w-12 h-6" />
       </span>
@@ -23,9 +23,9 @@
       <span>Sustainability</span>
       <span class="text-base">Mobil Uygulamalar</span>
       <span class="gap-2 flex flex-col">
-        <img src="../assets/appstore.png" class="w-30 h-12" />
-        <img src="../assets/googleplay.png" class="w-30 h-12" />
-        <img src="../assets/appgallery.png" class="w-30 h-12" />
+        <img src="../assets/app-store.png" class="w-30 h-12" />
+        <img src="../assets/google-play.png" class="w-30 h-12" />
+        <img src="../assets/app-gallery.png" class="w-30 h-12" />
       </span>
     </div>
     <div class="flex flex-col gap-4 justify-start items-start text-sm">
@@ -51,7 +51,7 @@
       <span class="border-2 border-white p-1 rounded-lg">Ülke Değiştir</span>
       <span class="flex gap-4">
         <img src="../assets/etbis-qr.webp" class="w-16" />
-        <img src="../assets/logo.png" class="w-16" />
+        <img src="../assets/logo.png" class="w-20" />
       </span>
     </div>
   </div>

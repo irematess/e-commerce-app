@@ -22,3 +22,13 @@ export const fetchProductsDetail = (productId) => {
     })
     .then((response) => response.data)
 }
+
+export const fetchTopSeller = () => {
+  return axiosInstance.get('/products?topSeller=1&_embed=seller').then((response) => response.data)
+}
+
+export const fetchTopSellerProducts = () => {
+  return axiosInstance
+    .get('/products?topSeller=1&_embed=seller&_limit=5')
+    .then((response) => response.data)
+}

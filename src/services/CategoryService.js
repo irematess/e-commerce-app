@@ -20,3 +20,7 @@ export const fetchCategoryProduct = (categoryId) => {
     })
     .then((response) => response.data)
 }
+
+export const fetchCategoryDetail = (categoryId) => {
+  return axiosInstance.get(`/categories/${categoryId}`).then((response) => response.data)
+}

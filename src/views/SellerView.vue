@@ -1,9 +1,9 @@
 <script setup>
-import Product from '@/components/Product.vue'
 import { ref, onMounted } from 'vue'
 import { fetchSellerProduct } from '@/services/SellerService'
 import { fetchSeller } from '@/services/SellerService'
 import { useRoute } from 'vue-router'
+import ProductList from '@/components/ProductList.vue'
 
 const route = useRoute()
 const seller = ref()
@@ -16,7 +16,7 @@ onMounted(() => {
 <template>
   <div
     v-if="seller"
-    class="container flex flex-row mx-auto w-3/4 py-4 bg-[#1642ba7b] mt-8 rounded-md justify-start items-center pl-4"
+    class="container flex flex-row mx-auto py-4 bg-[#1642ba7b] mt-8 rounded-md justify-start items-center pl-4"
   >
     <figure class="">
       <img :src="seller.thumbnail" alt="" class="h-16 rounded-full mr-2" />
@@ -34,17 +34,7 @@ onMounted(() => {
       >
     </div>
   </div>
-  <div class="container mx-auto grid grid-cols-5 w-3/4 gap-10 py-8" v-if="products">
-    <Product
-      v
-      v-for="(product, index) in products"
-      :key="index"
-      :thumbnail="product.thumbnail"
-      :seller_title="product.seller?.title"
-      :title="product.title"
-      :price="product.price"
-      :topSeller="product.topSeller"
-      :id="product.id"
-    />
+  <div class="container mx-auto" v-if="products">
+    <ProductList :products="products" />
   </div>
 </template>
