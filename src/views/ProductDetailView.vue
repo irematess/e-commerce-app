@@ -24,7 +24,7 @@ onMounted(() => {
       <router-link
         :to="`/category/${product.categoryId}`"
         class="ml-1 font-normal hover:underline"
-        >{{ product.category.title }}</router-link
+        >{{ product?.category?.title }}</router-link
       >
       <i class="fa-solid fa-chevron-right text-primary mr-2"></i>
       <router-link :to="`/product/${product.id}`" class="ml-1 font-semibold hover:underline">{{
@@ -99,9 +99,9 @@ onMounted(() => {
         </div>
       </div>
       <Seller
-        :title="product.seller?.title"
-        :rating="product.seller?.raiting"
-        :id="product.seller?.id"
+        :title="product?.seller?.title"
+        :rating="product?.seller?.raiting"
+        :id="product?.seller?.id"
         class="w-2/12"
       />
     </div>
@@ -115,7 +115,7 @@ onMounted(() => {
           <div class="flex items-center">
             <Raiting :value="product.raiting" /><i class="fa-solid fa-chevron-down ml-2"></i>
           </div>
-          <div>{{ product?.comments.length }} Yorum</div>
+          <div>{{ product?.comments?.length }} Yorum</div>
         </div>
         <div>
           <div class="bg-slate-200 mx-2 my-3 p-2 rounded-lg flex justify-center items-center">

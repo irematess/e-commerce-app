@@ -23,7 +23,7 @@ watch(() => gridNumber, fetchPage)
 <template>
   <div class="container mx-auto w-3/4 pt-6" v-if="category">
     <h1 v-if="category.length > 0">
-      "{{ category[0].category.title }}" kategorisi için {{ category.length }} sonuç listeleniyor
+      "aa" kategorisi için {{ category.length }} sonuç listeleniyor
     </h1>
     <div class="container mx-auto w-full font-thin justify-end text-end gap-2 flex">
       <input

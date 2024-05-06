@@ -6,6 +6,14 @@ export const fetchSeller = (sellerId) => {
 
 export const fetchSellerProduct = (sellerId) => {
   return axiosInstance
-    .get(`/products?sellerId=${sellerId}&_embed=seller&_embed=category`)
+    .get('/products', {
+      params: {
+        sellerId: sellerId,
+        _embed: ['seller', 'category']
+      },
+      paramsSerializer: {
+        indexes: null // by default: false
+      }
+    })
     .then((response) => response.data)
 }
