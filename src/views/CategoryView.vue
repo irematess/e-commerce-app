@@ -4,6 +4,7 @@ import { ref, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import ProductList from '@/components/ProductList.vue'
 import { fetchProducts } from '@/services/ProductService'
+import Breadcrumb from '@/components/Breadcrumb.vue'
 
 const categoryProducts = ref()
 const category = ref()
@@ -21,6 +22,12 @@ onMounted(() => {
 watch(() => route.params.categoryId, fetchPage)
 </script>
 <template>
+  <Breadcrumb
+    :paths="[
+      { path: '/', name: 'Anasayfa ' },
+      { path: `/category/${category?.id}`, name: category?.title }
+    ]"
+  />
   <div v-if="categoryProducts?.length == 0" class="justify-center items-center text-center py-16">
     <i class="fa-solid fa-cart-shopping text-9xl text-center mb-8"></i>
     <p>Bu kategoriye ait ürün bulunamadı</p>

@@ -4,6 +4,7 @@ import { fetchProducts } from '@/services/ProductService'
 import { onMounted, ref, watch } from 'vue'
 import Product from '@/components/Product.vue'
 import ProductList from '@/components/ProductList.vue'
+import Breadcrumb from '@/components/Breadcrumb.vue'
 
 const topSellerproducts = ref()
 const products = ref()
@@ -14,6 +15,7 @@ onMounted(() => {
 })
 </script>
 <template>
+  <Breadcrumb :paths="[{ path: '/', name: 'Anasayfa ' }]" />
   <div class="py-8 mt-8">
     <div class="container mx-auto w-4/5 gap-8 pt-4 py-8 bg-[#f8dfdf5c] px-8 rounded-md">
       <div class="flex justify-between items-center text-xl font-medium pb-2">
@@ -40,8 +42,3 @@ onMounted(() => {
     <ProductList :products="products" />
   </div>
 </template>
-<style scoped>
-input[type='radio'] {
-  padding: 10rem;
-}
-</style>

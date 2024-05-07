@@ -4,6 +4,7 @@ import { fetchSellerProduct } from '@/services/SellerService'
 import { fetchSeller } from '@/services/SellerService'
 import { useRoute } from 'vue-router'
 import ProductList from '@/components/ProductList.vue'
+import Breadcrumb from '@/components/Breadcrumb.vue'
 
 const route = useRoute()
 const seller = ref()
@@ -14,6 +15,12 @@ onMounted(() => {
 })
 </script>
 <template>
+  <Breadcrumb
+    :paths="[
+      { path: '/', name: 'Anasayfa ' },
+      { path: `/seller/${seller?.id}`, name: seller?.title }
+    ]"
+  />
   <div
     v-if="seller"
     class="container flex flex-row mx-auto py-4 bg-[#1642ba7b] mt-8 rounded-md justify-start items-center pl-4"

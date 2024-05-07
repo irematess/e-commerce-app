@@ -15,19 +15,3 @@ import Footer from '@/components/Footer.vue'
   <RouterView />
   <Footer />
 </template>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
-body {
-  /* font-family: 'Source Sans 3'; */
-  font-weight: bold;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-input::placeholder {
-  font-weight: 400;
-  font-size: 0.9rem;
-  color: #535252;
-}
-</style>

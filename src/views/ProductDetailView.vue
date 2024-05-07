@@ -4,6 +4,7 @@ import { fetchProductsDetail } from '@/services/ProductService'
 import { useRoute } from 'vue-router'
 import ProductGallery from '@/components/ProductGallery.vue'
 import Raiting from '@/components/Raiting.vue'
+import Breadcrumb from '@/components/Breadcrumb.vue'
 
 import Seller from '@/components/Seller.vue'
 import Comments from '@/components/Comments.vue'
@@ -17,21 +18,14 @@ onMounted(() => {
 })
 </script>
 <template>
+  <Breadcrumb
+    :paths="[
+      { path: '/', name: 'Home ' },
+      { path: `/category/${product?.category?.id}`, name: product?.category?.title },
+      { path: `/product/${product?.id}`, name: product?.title }
+    ]"
+  />
   <div v-if="product" class="container mx-auto mt-8 text[#333333] text-sm font-light w-4/5">
-    <div class="flex items-center">
-      <router-link to="/" class="mr-2 hover:underline">Anasayfa</router-link>
-      <i class="fa-solid fa-chevron-right text-primary mr-2"></i>
-      <router-link
-        :to="`/category/${product.categoryId}`"
-        class="ml-1 font-normal hover:underline"
-        >{{ product?.category?.title }}</router-link
-      >
-      <i class="fa-solid fa-chevron-right text-primary mr-2"></i>
-      <router-link :to="`/product/${product.id}`" class="ml-1 font-semibold hover:underline">{{
-        product.title
-      }}</router-link>
-    </div>
-
     <div
       v-if="product"
       class="flex flex-row container justify-between items-start w-full mt-4 pb-20"
@@ -87,7 +81,7 @@ onMounted(() => {
           <h5 class="font-bold mb-2">Öne Çıkan Özellikler:</h5>
           <div class="grid grid-cols-4 gap-2">
             <div
-              v-for="(attribute, index) in product.attributes"
+              v-for="(attribute, index) in product.attributes.slice(0, 8)"
               :key="index"
               class="bg-[#f27b1a1b] rounded-md flex flex-col justify-center items-center text-center p-1"
             >
@@ -130,6 +124,20 @@ onMounted(() => {
           :seller_id="product.seller.id"
           class=""
         />
+      </div>
+    </div>
+    <!-- Product Attribute -->
+    <div class="container mx-auto mb-36">
+      <span class="text-lg font-medium">Ürün Özellikleri</span>
+      <div class="grid grid-cols-2 gap-4 border-[1px] border-slate-200 p-8 rounded-md">
+        <div
+          v-for="(attribute, index) in product.attributes.slice(0, 8)"
+          :key="index"
+          class="bg-[#f8b2781b] rounded-md flex flex-row justify-between px-4 py-3 items-center text-center p-1"
+        >
+          <span>{{ attribute.title }}</span>
+          <span class="font-bold">{{ attribute.value }}</span>
+        </div>
       </div>
     </div>
   </div>

@@ -1,8 +1,8 @@
 <script setup>
 import { fetchTopSeller } from '@/services/ProductService'
 import { ref, onMounted } from 'vue'
-import Product from '@/components/Product.vue'
 import ProductList from '@/components/ProductList.vue'
+import Breadcrumb from '@/components/Breadcrumb.vue'
 
 const products = ref()
 
@@ -11,7 +11,13 @@ onMounted(() => {
 })
 </script>
 <template>
-  <div class="container mx-auto py-8">
+  <Breadcrumb
+    :paths="[
+      { path: '/', name: 'Anasayfa ' },
+      { path: `/category/cok-satanlar`, name: 'Çok Satanlar' }
+    ]"
+  />
+  <div class="container mx-auto -mt-8">
     <ProductList :products="products" />
   </div>
 </template>
