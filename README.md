@@ -7,6 +7,14 @@
 ## Project Setup
 
 ```sh
+git clone https://github.com/irematess/e-commerce-app.git
+```
+
+```sh
+git clone cd e-commerce-app
+```
+
+```sh
 yarn
 ```
 
