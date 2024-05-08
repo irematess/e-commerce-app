@@ -5,6 +5,7 @@ import { fetchSeller } from '@/services/SellerService'
 import { useRoute } from 'vue-router'
 import ProductList from '@/components/ProductList.vue'
 import Breadcrumb from '@/components/Breadcrumb.vue'
+import SellerRaiting from '@/components/SellerRaiting.vue'
 
 const route = useRoute()
 const seller = ref()
@@ -30,15 +31,7 @@ onMounted(() => {
     </figure>
     <div>
       {{ seller.title }}
-      <span
-        class="bg-[#38C400] text-white rounded-md p-[1px] mx-4 px-2"
-        :class="[
-          { 'bg-red-500': seller.raiting > 0 && seller.raiting <= 3 },
-          { 'bg-orange-500': seller.raiting > 3 && seller.raiting <= 7 },
-          { 'bg-[#38C400]': seller.raiting > 7 && seller.raiting <= 10 }
-        ]"
-        >{{ seller.raiting }}</span
-      >
+      <SellerRaiting :rating="seller.raiting" />
     </div>
   </div>
   <div class="container mx-auto" v-if="products">
