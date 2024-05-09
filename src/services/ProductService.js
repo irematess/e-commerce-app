@@ -29,6 +29,12 @@ export const fetchTopSeller = () => {
 
 export const fetchTopSellerProducts = () => {
   return axiosInstance
-    .get('/products?topSeller=1&_embed=seller&_limit=5')
+    .get('/products', {
+      params: {
+        topSeller: 1,
+        _embed: 'seller',
+        _limit: 5
+      }
+    })
     .then((response) => response.data)
 }
