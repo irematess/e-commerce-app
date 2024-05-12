@@ -7,25 +7,18 @@ git clone https://github.com/irematess/e-commerce-app.git
 ```
 
 ```sh
-git clone cd e-commerce-app
+cd e-commerce-app
 ```
 
 ```sh
-yarn
+yarn / npm install
 ```
 
 ### Compile and Hot-Reload for Development
 
 ```sh
-yarn dev
+yarn dev / npm run dev
 ```
-
-### Compile and Minify for Production
-
-```sh
-yarn build
-```
-
 
 
 ### Backend 
