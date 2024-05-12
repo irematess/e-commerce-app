@@ -1,17 +1,17 @@
 <script setup>
-import { ref, onMounted } from 'vue'
 import { fetchProductsDetail } from '@/services/ProductService'
+import { ref, onMounted, inject } from 'vue'
 import { useRoute } from 'vue-router'
+import Breadcrumb from '@/components/Breadcrumb.vue'
+import Comments from '@/components/Comments.vue'
 import ProductGallery from '@/components/ProductGallery.vue'
 import Raiting from '@/components/Raiting.vue'
-import Breadcrumb from '@/components/Breadcrumb.vue'
-
 import Seller from '@/components/Seller.vue'
-import Comments from '@/components/Comments.vue'
+
 
 const route = useRoute()
-
 const product = ref()
+const cart = inject('cart')
 
 onMounted(() => {
   fetchProductsDetail(route.params.productId).then((data) => (product.value = data))
@@ -51,7 +51,7 @@ onMounted(() => {
             <span class="bg-[#fa838318] p-1 rounded-md text-xs">Peşin Fiyatına 3 Taksit!</span>
           </div>
           <div class="flex text-center">
-            <button class="bg-primary mt-4 w-10/12 py-4 text-white rounded-lg mr-2">
+            <button class="bg-primary mt-4 w-10/12 py-4 text-white rounded-lg mr-2" @click="cart.push(product)">
               Sepete Ekle
             </button>
             <button class="hover:text-primary">

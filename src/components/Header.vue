@@ -41,9 +41,9 @@ onMounted(async () => {
       <div class="flex gap-8 text-black text-[13px] font-medium">
         <a href="/" class="hover:text-primary"><i class="fa-regular fa-user"></i> Hesabım</a>
         <a href="/" class="hover:text-primary"><i class="fa-regular fa-heart"></i> Favorilerim</a>
-        <a href="/" class="hover:text-primary"
+        <router-link to="/cart" class="hover:text-primary"
           ><i class="fa-solid fa-cart-shopping"></i> Sepetim
-        </a>
+        </router-link>
       </div>
     </div>
     <nav class="container flex justify-around w-full text-black text-[14px] font-semibold py-2">
