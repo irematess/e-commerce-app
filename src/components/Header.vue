@@ -10,7 +10,7 @@ onMounted(async () => {
     console.log('hata')
   }
   categories.value = categoriesData
-  console.log(categoriesData)
+  
 })
 </script>
 

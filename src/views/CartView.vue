@@ -1,19 +1,33 @@
 <script setup>
-import { inject, ref } from "vue";
+import {  inject, ref, watch, watchEffect } from "vue";
 import SellerRaiting from '@/components/SellerRaiting.vue'
 const cart = inject('cart')
 const piece = ref(1)
-
+const uniqeCart = Array.from(new Set(cart));
 function handleAddItem(product) {   
     cart.push(product) 
+    piece.value+=1
 }
+
+function handleDeleteItem(index) {
+    if(piece.value > 0){
+        cart.splice(index,1)
+        piece.value-=1
+    }
+
+}
+
+function totalPrice() {
+    return cart.reduce((acc, obj) => acc + obj.price , 0    )
+}
+
 
 </script>
 <template>
     <div class="container mx-auto py-6 flex justify-center gap-4">
         <div class=" flex flex-col gap-2">
             <p class="text-2xl text-black mb-6">Sepetim ({{ cart.length }} Ürün)</p>
-            <div v-for="(product, index) in cart" :key="index" class="w-full border-2 rounded-lg ">
+            <div v-for="(product, index) in uniqeCart" :key="index" class="w-full border-2 rounded-lg ">
             <div class="flex bg-[#FAFAFA] px-8 items-center text-sm py-2 border-b-2">
                 <input type="checkbox" class="accent-primary text-white mr-2"  name="" id="">
                 <span class=" text-[#999999] mr-3">Satıcı:</span> 
@@ -32,9 +46,10 @@ function handleAddItem(product) {
                 <div class="border-2 rounded-md">
                     <button class="w-6 h-8 border-r-2 bg-[#FAFAFA] "
                     :class="{'text-primary font-bold':  piece > 0  }"
-                    
+                    @click="handleDeleteItem(index)"
                     >-</button>
-                    <input type="text" maxlength="2" class="w-8 h-8 text-center" v-model="piece">
+                    
+                    <input type="text" maxlength="2" class="w-8 h-8 text-center" :v-model="product.name">
                     <button class="w-6 h-8 border-l-2 bg-[#FAFAFA] text-primary font-bold"
                     @click="handleAddItem(product)">+</button>
                 </div>
@@ -46,9 +61,9 @@ function handleAddItem(product) {
             <button class="w-full bg-primary py-4 text-white rounded-lg font-bold">Sepeti Onayla</button>
             <div class="border-2 rounded-lg p-2 text-xs flex flex-col gap-1">
                 <p class="text-xl mb-2">Sipariş Özeti</p >
-                <p class="flex justify-between">Ürünün Toplamı <span>900 TL</span></p>
+                <p class="flex justify-between">Ürünün Toplamı <span>{{totalPrice()}} TL</span></p>
                 <p class="flex justify-between">Kargo Toplamı <span>35 TL</span></p>
-                <p class="flex justify-between text-lg border-t-2">Toplam <span>935 TL</span></p>
+                <p class="flex justify-between text-lg border-t-2">Toplam <span>{{totalPrice() + 35}} TL</span></p>
             </div>  
             <button class="w-full bg-primary py-4 text-white rounded-lg font-bold">Sepeti Onayla</button>
         </div>

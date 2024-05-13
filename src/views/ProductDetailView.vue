@@ -40,7 +40,7 @@ onMounted(() => {
         <div class="font-normal">
           <div class="border-b-[1px] border-slate-200 pb-6">
             <h2 class="text-xl">
-              <span class="font-semibold">{{ seller_title }}</span>
+              <span class="font-semibold">{{ product.seller.title }} </span>
               {{ product.title }}
             </h2>
             <span class="flex gap-2 text-lg font-semibold items-center">
