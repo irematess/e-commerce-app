@@ -1,17 +1,22 @@
 <script setup>
 import { fetchCategories } from '@/services/CategoryService'
-import { onMounted, ref } from 'vue'
+import { inject, onMounted, ref } from 'vue'
 
 const categories = ref()
+const cart = ref([])
+ 
 
 onMounted(async () => {
+  cart.value =  inject('cart')
   const [reqErr, categoriesData] = await fetchCategories()
   if (reqErr) {
     console.log('hata')
   }
   categories.value = categoriesData
-  console.log(categoriesData)
+  
 })
+
+
 </script>
 
 <template>
@@ -41,9 +46,9 @@ onMounted(async () => {
       <div class="flex gap-8 text-black text-[13px] font-medium">
         <a href="/" class="hover:text-primary"><i class="fa-regular fa-user"></i> Hesabım</a>
         <a href="/" class="hover:text-primary"><i class="fa-regular fa-heart"></i> Favorilerim</a>
-        <a href="/" class="hover:text-primary"
-          ><i class="fa-solid fa-cart-shopping"></i> Sepetim
-        </a>
+        <router-link to="/cart" class="hover:text-primary"
+          ><i class="fa-solid fa-cart-shopping"></i> Sepetim  <span class="bg-primary p-1 rounded-full px-2 text-white">{{ cart?.length }}</span>
+        </router-link>
       </div>
     </div>
     <nav class="container flex justify-around w-full text-black text-[14px] font-semibold py-2">

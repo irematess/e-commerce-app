@@ -2,7 +2,7 @@
 import Raiting from './Raiting.vue'
 
 const props = defineProps({
-  comments: { type: Array },
+  comments: { type: Object },
   seller_id: { type: String }
 })
 </script>

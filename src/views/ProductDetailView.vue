@@ -1,20 +1,29 @@
 <script setup>
-import { ref, onMounted } from 'vue'
 import { fetchProductsDetail } from '@/services/ProductService'
+import { ref, onMounted, inject } from 'vue'
 import { useRoute } from 'vue-router'
+import Breadcrumb from '@/components/Breadcrumb.vue'
+import Comments from '@/components/Comments.vue'
 import ProductGallery from '@/components/ProductGallery.vue'
 import Raiting from '@/components/Raiting.vue'
-import Breadcrumb from '@/components/Breadcrumb.vue'
-
 import Seller from '@/components/Seller.vue'
-import Comments from '@/components/Comments.vue'
+
 
 const route = useRoute()
-
 const product = ref()
+const cart = ref([])
+
+
+function handleAddProduct(product) {
+  if(cart.value.findIndex(item => item.id === product.id)){
+    cart.value.push({...product,quantity:1})
+    
+  }
+}
 
 onMounted(() => {
-  fetchProductsDetail(route.params.productId).then((data) => (product.value = data))
+  fetchProductsDetail(route.params.productId).then((data) => (product.value = data)),
+  cart.value = inject('cart')
 })
 </script>
 <template>
@@ -40,7 +49,7 @@ onMounted(() => {
         <div class="font-normal">
           <div class="border-b-[1px] border-slate-200 pb-6">
             <h2 class="text-xl">
-              <span class="font-semibold">{{ seller_title }}</span>
+              <span class="font-semibold">{{ product.seller.title }} </span>
               {{ product.title }}
             </h2>
             <span class="flex gap-2 text-lg font-semibold items-center">
@@ -51,7 +60,7 @@ onMounted(() => {
             <span class="bg-[#fa838318] p-1 rounded-md text-xs">Peşin Fiyatına 3 Taksit!</span>
           </div>
           <div class="flex text-center">
-            <button class="bg-primary mt-4 w-10/12 py-4 text-white rounded-lg mr-2">
+            <button class="bg-primary mt-4 w-10/12 py-4 text-white rounded-lg mr-2" @click="handleAddProduct(product)">
               Sepete Ekle
             </button>
             <button class="hover:text-primary">
