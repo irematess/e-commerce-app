@@ -1,18 +1,25 @@
 <script setup>
 import { fetchCategoryDetail, fetchCategoryProduct } from '@/services/CategoryService'
 import { ref, onMounted, watch } from 'vue'
+import Pagination from '@/components/Pagination.vue'
 import { useRoute } from 'vue-router'
 import ProductList from '@/components/ProductList.vue'
 import { fetchProducts } from '@/services/ProductService'
 import Breadcrumb from '@/components/Breadcrumb.vue'
 
+const page = ref(1)
 const categoryProducts = ref([])
 const category = ref()
 const productsTopSeller = ref()
 const route = useRoute()
+function handleChangePage(pageNumber) {
+  page.value = pageNumber
+  console.log('degis artık')
+  console.log(page.value)
+}
 
 const fetchPage = () => {
-  fetchCategoryProduct(route.params.categoryId).then((data) => (categoryProducts.value = data)),
+  fetchCategoryProduct(route.params.categoryId,page.value).then((data) => (categoryProducts.value = data)),
     fetchProducts().then((data) => (productsTopSeller.value = data)),
     fetchCategoryDetail(route.params.categoryId).then((data) => (category.value = data))
 }
@@ -20,6 +27,7 @@ onMounted(() => {
   fetchPage()
 })
 watch(() => route.params.categoryId, fetchPage)
+watch(() => page.value, fetchPage)
 </script>
 <template>
   <Breadcrumb
@@ -38,6 +46,7 @@ watch(() => route.params.categoryId, fetchPage)
         "{{ category?.title }}" kategorisi için {{ categoryProducts.length }} sonuç listeleniyor
       </h1>
     </div>
-    <ProductList :products="categoryProducts" />
+    <ProductList :products="categoryProducts?.data" />
+    <Pagination @changePage="handleChangePage" :productsPage="categoryProducts" v-if="categoryProducts?.data.length > 0"/>
   </div>
 </template>

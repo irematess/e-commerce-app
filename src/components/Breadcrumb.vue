@@ -6,6 +6,7 @@ const props = defineProps({
 })
 </script>
 <template>
+  
   <div class="flex container mx-auto pt-8">
     <div class="flex flex-row" v-for="(path, index) in paths" :key="index">
       <router-link :to="path.path"

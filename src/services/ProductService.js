@@ -10,6 +10,17 @@ export const fetchProducts = () => {
     .then((response) => response.data)
 }
 
+
+export const fetchProductsPage = (page) => {
+  return axiosInstance
+  .get('products', {
+    params: {
+      _page: page,
+      _per_page: 15
+    }
+  }).then((response) => response.data)
+}
+
 export const fetchProductsDetail = (productId) => {
   return axiosInstance
     .get(`/products/${productId}/`, {
@@ -23,8 +34,16 @@ export const fetchProductsDetail = (productId) => {
     .then((response) => response.data)
 }
 
-export const fetchTopSeller = () => {
-  return axiosInstance.get('/products?topSeller=1&_embed=seller').then((response) => response.data)
+export const fetchTopSeller = (page) => {
+  return axiosInstance.get('/products', {
+    params: {
+      topSeller: 1,
+      _embed: 'seller',
+      _page: page,
+      _per_page: 15
+    }
+  })
+  .then((response) => response.data)
 }
 
 export const fetchTopSellerProducts = () => {

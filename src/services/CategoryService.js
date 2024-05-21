@@ -7,12 +7,15 @@ export const fetchCategories = () => {
     .catch((err) => [err])
 }
 
-export const fetchCategoryProduct = (categoryId) => {
+export const fetchCategoryProduct = (categoryId, page) => {
   return axiosInstance
     .get('/products', {
       params: {
         categoryId: categoryId,
-        _embed: ['seller', 'category']
+        _embed: ['seller', 'category'],
+        _page: page,
+        _per_page: 15
+        
       },
       paramsSerializer: {
         indexes: null // by default: false
