@@ -40,7 +40,11 @@ const router = createRouter({
       name: 'sellerView',
       component: SellerView
     }
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    // always scroll to top
+    return { top: 0 }
+  }
 })
 
 export default router
