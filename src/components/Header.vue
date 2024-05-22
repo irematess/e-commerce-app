@@ -45,7 +45,7 @@ onMounted(async () => {
       </div>
       <div class="flex gap-8 text-black text-[13px] font-medium">
         <a href="/" class="hover:text-primary"><i class="fa-regular fa-user"></i> Hesabım</a>
-        <a href="/" class="hover:text-primary"><i class="fa-regular fa-heart"></i> Favorilerim</a>
+        <router-link to="/favorite" class="hover:text-primary"><i class="fa-regular fa-heart"></i> Favorilerim</router-link>
         <router-link to="/cart" class="hover:text-primary"
           ><i class="fa-solid fa-cart-shopping"></i> Sepetim  <span class="bg-primary p-1 rounded-full px-2 text-white">{{ cart?.length }}</span>
         </router-link>

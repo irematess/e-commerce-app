@@ -12,6 +12,7 @@ import Seller from '@/components/Seller.vue'
 const route = useRoute()
 const product = ref()
 const cart = ref([])
+const favorite = ref([])
 
 
 function handleAddProduct(product) {
@@ -24,6 +25,7 @@ function handleAddProduct(product) {
 onMounted(() => {
   fetchProductsDetail(route.params.productId).then((data) => (product.value = data)),
   cart.value = inject('cart')
+  favorite.value = inject('favorites')
 })
 </script>
 <template>
@@ -63,7 +65,7 @@ onMounted(() => {
             <button class="bg-primary mt-4 w-10/12 py-4 text-white rounded-lg mr-2" @click="handleAddProduct(product)">
               Sepete Ekle
             </button>
-            <button class="hover:text-primary">
+            <button @click="favorite.push(product)" class="hover:text-primary">
               <i class="fa-regular fa-heart border-[1px] py-3 px-4 rounded-full text-2xl mt-4"></i>
             </button>
           </div>

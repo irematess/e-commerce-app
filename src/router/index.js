@@ -5,6 +5,7 @@ import HomeView from '@/views/HomeView.vue'
 import ProductDetailView from '@/views/ProductDetailView.vue'
 import SellerView from '@/views/SellerView.vue'
 import TopSellerView from '@/views/TopSellerView.vue'
+import FavoriteView from '@/views/FavoriteView.vue'
 
 
 const router = createRouter({
@@ -19,6 +20,11 @@ const router = createRouter({
       path: '/cart',
       name: 'cart',
       component: CartView
+    },
+    {
+      path: '/favorite',
+      name: 'favorite',
+      component: FavoriteView
     },
     {
       path: '/product/:productId',
