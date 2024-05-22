@@ -2,6 +2,8 @@
 import { ref } from 'vue'
 import Product from './Product.vue'
 
+
+const sort = ref()
 const gridNumber = ref('five')
 
 const props = defineProps({
@@ -10,6 +12,17 @@ const props = defineProps({
 </script>
 
 <template>
+  <div class="container mx-auto flex justify-between items-center">
+    <div class="container mx-auto ">
+      <select v-model="sort" class="border-2 border-black">
+        <option selected value="" >Varsayılan Sıralama</option>
+        <option value="title" >A-Z</option>
+        <option value="-title">Z-A</option>
+        <option value="price">Artan Fiyat</option>
+        <option value="-price">Azalan Fiyat</option>
+        <option value="-price">Çok Satanlar</option>
+      </select>
+    </div>
   <div class="container mx-auto py-8 font-thin justify-end text-end gap-2 flex" v-if="products">
     <input type="radio" id="fşve" value="five" v-model="gridNumber" />
     <label for="three">5'li |</label>
@@ -18,6 +31,9 @@ const props = defineProps({
     <input type="radio" id="seven" value="seven" v-model="gridNumber" />
     <label for="seven">7'li </label>
   </div>
+</div>
+ 
+  
   <div
     class="container mx-auto grid gap-8 py-8"
     v-if="products"
