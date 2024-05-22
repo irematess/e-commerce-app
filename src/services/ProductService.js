@@ -11,10 +11,11 @@ export const fetchProducts = () => {
 }
 
 
-export const fetchProductsPage = (page) => {
+export const fetchProductsPage = (page,sort) => {
   return axiosInstance
   .get('products', {
     params: {
+      _sort:sort,
       _page: page,
       _per_page: 15
     }

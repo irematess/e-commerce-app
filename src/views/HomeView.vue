@@ -12,7 +12,7 @@ const topSellerproducts = ref()
 const products = ref()
 const productsPage = ref()
 const page = ref(1)
-
+const sort = ref()
 
 function handleChangePage(pageNumber) {
   page.value = pageNumber
@@ -20,15 +20,18 @@ function handleChangePage(pageNumber) {
   console.log(page.value)
 }
 const fetchPage = () => {
-  fetchProductsPage(page.value).then((data) => productsPage.value = data)
+  fetchProductsPage(page.value, sort.value).then((data) => productsPage.value = data)
 }
 onMounted(() => {
-  fetchTopSellerProducts().then((data) => (topSellerproducts.value = data)),
-    fetchProducts().then((data) => (products.value = data)),
-    fetchPage()
+  fetchPage() 
+  fetchTopSellerProducts().then((data) => (topSellerproducts.value = data))
+  fetchProducts().then((data) => (products.value = data))
+    
 })
 
 watch(() => page.value, fetchPage)
+watch(() => sort.value, fetchPage)
+
 </script>
 <template>
 
@@ -56,21 +59,17 @@ watch(() => page.value, fetchPage)
         />
       </div>
     </div>
+    <div class="container mx-auto mt-8 -mb-16">
+      <select v-model="sort"  class="border-2 border-black">
+        <option disabled value="" >Varsayılan Sıralama</option>
+        <option value="title" >A-Z</option>
+        <option value="-title">Z-A</option>
+        <option value="price">Artan Fiyat</option>
+        <option value="-price">Azalan Fiyat</option>
+        <option value="topSeller">Çok Satanlar</option>
+      </select>
+    </div>
     <ProductList :products="productsPage?.data" />
-    <!-- <div class="flex container mx-auto justify-center gap-1 items-center">
-      <div class="p-1 border-2 rounded-lg" @click="handleChangePage(productsPage?.prev)"><i class="fa-solid fa-chevron-left"></i></div>
-      <div>{{ productsPage?.first }}</div>
-      <div>{{ productsPage?.first + 1}}</div>
-      <button v-for="(pageNumber, index) in productsPage?.pages " :key="index"
-      class="border-2 p-1 rounded-lg"
-      @click="handleChangePage(pageNumber)"
-      >
-      {{pageNumber}}</button>
-      <div>...</div>
-      <div>{{ productsPage?.last -1 }}</div>
-      <div>{{ productsPage?.last}}</div>
-      <div class="p-1 border-2 rounded-lg" @click="handleChangePage(productsPage?.next)"><i class="fa-solid fa-chevron-right"></i></div>
-    </div> -->
     <Pagination @changePage="handleChangePage" :productsPage="productsPage"/>
   </div>
 </template>

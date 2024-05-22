@@ -7,12 +7,13 @@ export const fetchCategories = () => {
     .catch((err) => [err])
 }
 
-export const fetchCategoryProduct = (categoryId, page) => {
+export const fetchCategoryProduct = (categoryId, page, sort) => {
   return axiosInstance
     .get('/products', {
       params: {
         categoryId: categoryId,
         _embed: ['seller', 'category'],
+        _sort:sort,
         _page: page,
         _per_page: 15
         

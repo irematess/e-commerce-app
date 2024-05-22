@@ -7,6 +7,7 @@ import ProductList from '@/components/ProductList.vue'
 import { fetchProducts } from '@/services/ProductService'
 import Breadcrumb from '@/components/Breadcrumb.vue'
 
+const sort = ref()
 const page = ref(1)
 const categoryProducts = ref([])
 const category = ref()
@@ -21,7 +22,7 @@ function handleChangePage(pageNumber) {
 const fetchPage = () => {
   fetchCategoryProduct(route.params.categoryId,page.value).then((data) => (categoryProducts.value = data)),
     fetchProducts().then((data) => (productsTopSeller.value = data)),
-    fetchCategoryDetail(route.params.categoryId).then((data) => (category.value = data))
+    fetchCategoryDetail(route.params.categoryId, sort.value).then((data) => (category.value = data))
 }
 onMounted(() => {
   fetchPage()
@@ -45,6 +46,16 @@ watch(() => page.value, fetchPage)
       <h1>
         "{{ category?.title }}" kategorisi için {{ categoryProducts.length }} sonuç listeleniyor
       </h1>
+      <div class="container mx-auto mt-8 -mb-18">
+      <select v-model="sort" class="border-2 border-black">
+        <option selected value="" >Varsayılan Sıralama</option>
+        <option value="title" >A-Z</option>
+        <option value="-title">Z-A</option>
+        <option value="price">Artan Fiyat</option>
+        <option value="-price">Azalan Fiyat</option>
+        <option value="topSeller">Çok Satanlar</option>
+      </select>
+    </div>
     </div>
     <ProductList :products="categoryProducts?.data" />
     <Pagination @changePage="handleChangePage" :productsPage="categoryProducts" v-if="categoryProducts?.data.length > 0"/>

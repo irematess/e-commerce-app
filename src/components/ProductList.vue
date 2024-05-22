@@ -4,12 +4,17 @@ import Product from './Product.vue'
 
 const gridNumber = ref('five')
 
+
 const props = defineProps({
-  products: { type: Object }
+  products: { type: Object },
+  sort: {type: ref}
 })
 </script>
 
 <template>
+
+   <div class="container mx-auto flex justify-between items-center">
+    
   <div class="container mx-auto py-8 font-thin justify-end text-end gap-2 flex" v-if="products">
     <input type="radio" id="fşve" value="five" v-model="gridNumber" />
     <label for="three">5'li |</label>
@@ -18,6 +23,16 @@ const props = defineProps({
     <input type="radio" id="seven" value="seven" v-model="gridNumber" />
     <label for="seven">7'li </label>
   </div>
+</div>
+ 
+  <!-- <div class="container mx-auto py-8 font-thin justify-end text-end gap-2 flex" v-if="products">
+    <input type="radio" id="fşve" value="five" v-model="gridNumber" />
+    <label for="three">5'li |</label>
+    <input type="radio" id="six" value="six" v-model="gridNumber" />
+    <label for="four">6'lı |</label>
+    <input type="radio" id="seven" value="seven" v-model="gridNumber" />
+    <label for="seven">7'li </label>
+  </div> -->
   <div
     class="container mx-auto grid gap-8 py-8"
     v-if="products"
