@@ -12,7 +12,7 @@ const topSellerproducts = ref()
 const products = ref()
 const productsPage = ref()
 const page = ref(1)
-const sort = ref()
+const sort = ref("title")
 
 function handleChangePage(pageNumber) {
   page.value = pageNumber
@@ -59,16 +59,19 @@ watch(() => sort.value, fetchPage)
         />
       </div>
     </div>
-    <div class="container mx-auto mt-8 -mb-16">
+    <!-- <div class="container mx-auto mt-8 ">
       <select v-model="sort"  class="border-2 border-black">
-        <option disabled value="" >Varsayılan Sıralama</option>
-        <option value="title" >A-Z</option>
+
+        <option  value=""  >Varsayılan Sıralama</option>
+        <option value="title"  >A-Z</option>
         <option value="-title">Z-A</option>
         <option value="price">Artan Fiyat</option>
         <option value="-price">Azalan Fiyat</option>
         <option value="topSeller">Çok Satanlar</option>
       </select>
-    </div>
+
+      {{ sort }}
+    </div> -->
     <ProductList :products="productsPage?.data" />
     <Pagination @changePage="handleChangePage" :productsPage="productsPage"/>
   </div>
