@@ -29,5 +29,3 @@ npx json-server fakedb/database.json
 
 ## Screenshots
 
-https://github.com/irematess/e-commerce-app/assets/76522540/4181b29d-c528-4a20-915a-6b7a15ad3bc5
-
